@@ -7,22 +7,33 @@ public class Program {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("How many rooms will be rented: ");
+        Reserva[] reserva = new Reserva[10];
+
+        System.out.print("How many rooms will be rented: ");
         int n = sc.nextInt();
 
-        String[] name = new String[n];
-        String[] email = new String[n];
-        int[] room = new int[10];
+        System.out.println();
 
-        for (int i = 0; i < name.length; i++){
-            System.out.println("Rent " +(1+i));
-            System.out.println("Name: ");
-            name[i] = sc.next();
-            System.out.println("Email: ");
-            email[i] = sc.next();
-            System.out.println("Room: ");
-            int i1 = room[sc.nextInt()];
+        for (int i = 0; i < reserva.length; i++){
 
+            System.out.println("Rent #" +(1+i));
+            System.out.print("Name: ");
+            sc.nextLine();
+            String name = sc.nextLine();
+            System.out.print("Email: ");
+            String email = sc.next();
+            System.out.print("Room: ");
+            int room = sc.nextInt();
+            System.out.println();
+
+            reserva[room] = new Reserva(name, email, room);
+        }
+        System.out.println();
+        System.out.println("Busy rooms: ");
+        for (int i = 0; i < reserva.length; i++){
+            if(reserva[i] != null){
+                System.out.println(reserva[i].toString());
+            }
         }
 
     }
